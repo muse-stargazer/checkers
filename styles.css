@@ -1,0 +1,49 @@
+body {
+  background-image: url(images/wood.jpg);
+}
+
+#board {
+  height: 95vh;
+  width: 95vh;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  margin: auto auto;
+}
+
+.dark {
+  background-color: blue;
+}
+
+.light {
+  background-color: grey;
+}
+
+.red {
+  background-image: url(images/red-checker-piece.png);
+  background-size: cover;
+}
+
+.black {
+  background-image: url(images/black-checker-piece.png);
+  background-size: cover;
+}
+
+#attribution {
+  position: fixed;
+  bottom: 0;
+  height: 2.5vh;
+  width: 100vw;
+  background-color: rgba(128, 64, 0, .8);
+  color: white;
+}
+
+
+
+
+
+
+
+
+
