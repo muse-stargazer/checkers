@@ -1,3 +1,5 @@
+/*code for checkers game*/
+
 body {
   background-image: url(images/wood.jpg);
 }
@@ -12,20 +14,20 @@ body {
   margin: auto auto;
 }
 
-.dark {
+#board.dark {
   background-color: blue;
 }
 
-.light {
+#board.light {
   background-color: grey;
 }
 
-.red {
+#board.dark.red {
   background-image: url(images/red-checker-piece.png);
   background-size: cover;
 }
 
-.black {
+#board.dark.black {
   background-image: url(images/black-checker-piece.png);
   background-size: cover;
 }
