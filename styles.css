@@ -23,13 +23,14 @@ body {
   }
 
 #board {
-  height: 60vh;
-  width: 60vh;
+  height: 80vh;
+  width: 80vh;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   margin: auto auto;
+  top: 13vh;
   position: relative;
 }
 
