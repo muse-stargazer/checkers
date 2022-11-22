@@ -4,14 +4,33 @@ body {
   background-image: url(images/wood.jpg);
 }
 
+#header {
+  background-color: rgba(128, 64, 0, .8);
+  font-family: arial, sans-serif;
+  top: 1vh;
+  position: absolute;
+  height: 8vh;
+  left: 38vw;
+}
+
+#header h1 {
+  color: white;
+  font-size: 4vh;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 0;
+  padding-bottom: 0;
+  }
+
 #board {
-  height: 95vh;
-  width: 95vh;
+  height: 60vh;
+  width: 60vh;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   margin: auto auto;
+  position: relative;
 }
 
 #board.dark {
