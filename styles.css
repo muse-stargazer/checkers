@@ -4,6 +4,7 @@ body {
   background-image: url(images/wood.jpg);
 }
 
+/*title styling*/
 #header {
   background-color: rgba(128, 64, 0, .8);
   font-family: arial, sans-serif;
@@ -22,6 +23,30 @@ body {
   padding-bottom: 0;
   }
 
+/* reminder to call newGame onclick function
+.newGame {
+  
+}*/
+
+#newGameButton {
+  height: 5vh;
+  position: absolute;
+  background-color: green;
+  display: flex;
+  border-radius: 20px;
+  right: 2vw;
+  top: 1vh;
+  font-family: arial, sans-serif;
+  font-size: 3vh;
+  color: white;
+}
+
+#newGameButton p {
+  align-self: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 #board {
   height: 80vh;
   width: 80vh;
@@ -34,6 +59,7 @@ body {
   position: relative;
 }
 
+/*board spaces*/
 #board.dark {
   background-color: blue;
 }
@@ -42,6 +68,7 @@ body {
   background-color: grey;
 }
 
+/*pieces*/
 #board.dark.red {
   background-image: url(images/red-checker-piece.png);
   background-size: cover;
