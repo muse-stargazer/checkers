@@ -60,21 +60,21 @@ body {
 }
 
 /*board spaces*/
-#board.dark {
+div.dark {
   background-color: blue;
 }
 
-#board.light {
+div.light {
   background-color: grey;
 }
 
 /*pieces*/
-#board.dark.red {
+div.dark.red {
   background-image: url(images/red-checker-piece.png);
   background-size: cover;
 }
 
-#board.dark.black {
+div.dark.black {
   background-image: url(images/black-checker-piece.png);
   background-size: cover;
 }
