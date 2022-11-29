@@ -1,5 +1,9 @@
 /*code for checkers game*/
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url(images/wood.jpg);
 }
@@ -10,8 +14,9 @@ body {
   font-family: arial, sans-serif;
   top: 1vh;
   position: absolute;
-  height: 8vh;
+  display: flex;
   left: 38vw;
+  height: 8vh;
 }
 
 #header h1 {
@@ -19,8 +24,6 @@ body {
   font-size: 4vh;
   padding-left: 6px;
   padding-right: 6px;
-  padding-top: 0;
-  padding-bottom: 0;
   }
 
 /* reminder to call newGame onclick function
