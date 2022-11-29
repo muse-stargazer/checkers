@@ -26,11 +26,6 @@ body {
   padding-right: 6px;
   }
 
-/* reminder to call newGame onclick function
-.newGame {
-  
-}*/
-
 #newGameButton {
   height: 5vh;
   position: absolute;
@@ -53,6 +48,7 @@ body {
 #newGameButton:hover {
   background-color: lightgreen;
   color: black;
+  cursor: pointer;
 }
 
 #board {
