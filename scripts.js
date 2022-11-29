@@ -1,12 +1,15 @@
 //code for checkers game
 
-document.getElementsByClassName("newGame").onclick = function() {freshBoard()};
+document.getElementById("newGameButton").onclick = function() {freshBoard()};
 
 function freshBoard () {
-  if (div.classList.contains("piece")) {
-    div.classList.add("red");
+  if (element.classList.contains("piece")) {
+    element.classList.add("red");
+    element.classList.remove("piece");
   }
-  if (div.classList.contains("piece2")) {
-    div.classList.add("black");
+  if (element.classList.contains("piece2")) {
+    element.classList.add("black");
+    element.classList.remove("piece2");
   }
 }
+

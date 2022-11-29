@@ -50,6 +50,11 @@ body {
   padding-right: 8px;
 }
 
+#newGameButton:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
 #board {
   height: 80vh;
   width: 80vh;
