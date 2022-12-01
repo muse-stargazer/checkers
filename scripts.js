@@ -25,15 +25,20 @@ function freshBoard() {
     //set up counter for chosen pieces
     chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
     //copy for black class once working---------------------------------------------------------------
-    if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList('red')) {
-      chooseCount[0].classList.remove('red', 'choose');
-      chooseCount[1].classList.add('red');
-      chooseCount[1].classList.remove('choose');
-    } 
-    else if (chooseCount.length > 2) {
+    if (chooseCount.length < 2) {
+      if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList('red')) {
+        chooseCount[0].classList.remove('red', 'choose');
+        chooseCount[1].classList.add('red');
+        chooseCount[1].classList.remove('choose');
+      }
+      if (chooseCount[0].classList.contains('black') && !chooseCount[1].classList('black')) {
+        chooseCount[0].classList.remove('black', 'choose');
+        chooseCount[1].classList.add('black');
+        chooseCount[1].classList.remove('choose');
+    } else if (chooseCount.length > 2) {
       darkSpaces.classList.remove('choose');
     }
-  }));
+   }}));
 
 
 
