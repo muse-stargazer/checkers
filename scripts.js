@@ -3,6 +3,8 @@
 //null all global variables here
 var redPieces = null;
 var blackPieces = null;
+var chooseCount = null;
+var darkSpaces = null;
 
 //function to apply freshBoard to all newGame class --not currently working, so have function in html--------------------
 //[...document.getElementsByClassName('newGame')].onclick = freshBoard;
@@ -15,26 +17,30 @@ function freshBoard() {
 
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
+  darkSpaces = document.getElementsByClassName('dark'); //collection of all dark spaces (moveable spots)
 
-  //add visual selector to space when red piece is selected 
-  [...redPieces].forEach(div => div.addEventListener('click', function () {
+  //add visual selector to space 
+  [...darkSpaces].forEach(div => div.addEventListener('click', function() {
     this.classList.toggle('choose');
-    //once function is complete copy it for black pieces -----------------------------------
+    //set up counter for chosen pieces
+    chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
+    //copy for black class once working---------------------------------------------------------------
+    if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList('red')) {
+      chooseCount[0].classList.remove('red', 'choose');
+      chooseCount[1].classList.add('red');
+      chooseCount[1].classList.remove('choose');
+    } 
+    else if (chooseCount.length > 2) {
+      darkSpaces.classList.remove('choose');
+    }
   }));
 
-  
-  
+
+
   redCount = redPieces.length; //number of red pieces left
   blackCount = blackPieces.length; //number of black pieces left
-  
-  //set up counter for chosen pieces
-  chooseCount = document.querySelectorAll('choose'); //collection of selected spaces
-  
-  function spaceCount(what) {
-    if (!what.classList.contains('choose')) {
-      
-    }
-  }
+
+
 
 
 }
