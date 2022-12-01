@@ -87,8 +87,8 @@ div.dark.black {
 }
 
 /*function to select piece*/
-.choose {
-  border: 4px black;
+div.choose {
+    background-color: white;
 }
 
 #attribution {

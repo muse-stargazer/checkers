@@ -1,6 +1,6 @@
 //code for checkers game
 
-//function to apply freshBoard to all newGame class --not currently working, so have function in html
+//function to apply freshBoard to all newGame class --not currently working, so have function in html--------------------
 //[...document.getElementsByClassName('newGame')].onclick = freshBoard;
 
 //attached to #newGameButton currently, should eventually be attached to .newGame
@@ -14,9 +14,14 @@ redPieces = document.getElementsByClassName('red'); //collection of red pieces
 
 blackPieces = document.getElementsByClassName('black'); //collection of black pieces
 
-//trying to add visual selector to space when piece is selected
+//trying to add visual selector to space when piece is selected --not working---------------------------
 redPieces.forEach(div => {
   div.addEventListener('click', select => {
     classList.add('choose');
   })
 });
+
+redCount = redPieces.length; //number of red pieces left
+
+blackCount = blackPieces.length; //number of black pieces left
+
