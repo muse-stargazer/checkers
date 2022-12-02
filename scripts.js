@@ -29,10 +29,9 @@ function freshBoard() {
 
   //add visual selector to space 
   [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
-    /*this.classList.toggle('choose');*/
 
     chosenSpace = document.querySelector('.choose');
-     //if we haven't selected a space yet
+    //if we haven't selected a space yet
     if (!chosenSpace) {
       if (!this.classList.contains('red') && !this.classList.contains('black')) {
         //if the space we select is empty, do nothing
@@ -51,35 +50,10 @@ function freshBoard() {
       this.classList.add(chosenWasRed ? 'red' : 'black');
       chosenSpace.classList.remove('choose');
       chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black');
-    }//end of select function
+    } //end of select function
 
+    redCount = redPieces.length; //number of red pieces left
+    blackCount = blackPieces.length; //number of black pieces left
 
-    //set up counter for chosen pieces
-    //chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
-  
-  
-
-   /* if (chooseCount.length == 2) {
-      if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList.contains('red') && !chooseCount[1].classList.contains('black')) {
-        chooseCount[1].classList.add('red');
-        chooseCount[1].classList.remove('choose');
-        chooseCount[0].classList.remove('red', 'choose');
-      } else if (chooseCount[0].classList.contains('black') && !chooseCount[1].classList.contains('red') && !chooseCount[1].classList.contains('black')) {
-        chooseCount[1].classList.add('black');
-        chooseCount[1].classList.remove('choose');
-        chooseCount[0].classList.remove('black', 'choose');
-      }
-    }
-    if (chooseCount.length == 3) {
-      [...darkSpaces].classList.remove('choose'); //-------------------"cannot read properties of undefined: reading remove"
-    }  //end of .choose classList.add function*/
-
-
-
-  redCount = redPieces.length; //number of red pieces left
-  blackCount = blackPieces.length; //number of black pieces left
-
-
-
-
-}))} //end of freshBoard
+  }))
+} //end of freshBoard
