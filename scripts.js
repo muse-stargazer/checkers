@@ -13,11 +13,13 @@ var darkSpaces = null;
 function freshBoard() {
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //makes pieces populate at correct starting positions, marked by blank piece classes
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.add('black'));
-  [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black')); //clears middle rows so only correct number of pieces show
+  [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose')); //clears middle rows so only correct number of pieces show
 
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
   darkSpaces = document.getElementsByClassName('dark'); //collection of all dark spaces (moveable spots)
+  
+  [...darkSpaces].forEach(div => div.classList.remove('choose'));
 
   //add visual selector to space 
   [...darkSpaces].forEach(div => div.addEventListener('click', function() {
