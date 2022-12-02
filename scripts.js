@@ -16,7 +16,9 @@ var blackCount = null;
 //attached to #newGameButton currently, should eventually be attached to .newGame 
 function freshBoard() {
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //makes pieces populate at correct starting positions, marked by blank piece classes
+  [...document.getElementsByClassName('piece')].forEach(div => div.classList.remove('black'));
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.add('black'));
+  [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red'));
   [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose')); //clears middle rows so only correct number of pieces show
 
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
@@ -27,7 +29,7 @@ function freshBoard() {
 
   //add visual selector to space 
   [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
-    this.classList.toggle('choose');
+    /*this.classList.toggle('choose');*/
 
     chosenSpace = document.querySelector('.choose');
      //if we haven't selected a space yet
@@ -49,8 +51,7 @@ function freshBoard() {
       this.classList.add(chosenWasRed ? 'red' : 'black');
       chosenSpace.classList.remove('choose');
       chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black');
-    }
-    }));//end of select function
+    }//end of select function
 
 
     //set up counter for chosen pieces
@@ -71,8 +72,7 @@ function freshBoard() {
     }
     if (chooseCount.length == 3) {
       [...darkSpaces].classList.remove('choose'); //-------------------"cannot read properties of undefined: reading remove"
-    }
-  })); //end of .choose classList.add function*/
+    }  //end of .choose classList.add function*/
 
 
 
@@ -82,4 +82,4 @@ function freshBoard() {
 
 
 
-} //end of freshBoard
+}))} //end of freshBoard
