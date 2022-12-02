@@ -5,6 +5,10 @@ var redPieces = null;
 var blackPieces = null;
 var chooseCount = null;
 var darkSpaces = null;
+var chosenSpace = null;
+var chosenWasRed = null;
+var redCount = null;
+var blackCount = null;
 
 //function to apply freshBoard to all newGame class --not currently working, so have function in html--------------------
 //[...document.getElementsByClassName('newGame')].onclick = freshBoard;
@@ -19,15 +23,42 @@ function freshBoard() {
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
   darkSpaces = document.getElementsByClassName('dark'); //collection of all dark spaces (moveable spots)
 
-  [...darkSpaces].forEach(div => div.classList.remove('choose'));
+  [...darkSpaces].forEach(div => div.classList.remove('choose')); //clear all selections on New Game
 
   //add visual selector to space 
-  [...darkSpaces].forEach(div => div.addEventListener('click', function() {
+  [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
     this.classList.toggle('choose');
-    //set up counter for chosen pieces
-    chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
 
-    if (chooseCount.length == 2) {
+    chosenSpace = document.querySelector('.choose');
+     //if we haven't selected a space yet
+    if (!chosenSpace) {
+      if (!this.classList.contains('red') && !this.classList.contains('black')) {
+        //if the space we select is empty, do nothing
+        return;
+      }
+      //the space has a piece, add .choose
+      this.classList.add('choose');
+    } else {
+      if (this.classList.contains('red') || this.classList.contains('black')) {
+        //there is a piece on second space, invalid move
+        chosenSpace.classList.remove('choose');
+        return;
+      }
+      //we clicked a dark space with a piece on it, valid move
+      chosenWasRed = chosenSpace.classList.contains('red');
+      this.classList.add(chosenWasRed ? 'red' : 'black');
+      chosenSpace.classList.remove('choose');
+      chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black');
+    }
+    }));//end of select function
+
+
+    //set up counter for chosen pieces
+    //chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
+  
+  
+
+   /* if (chooseCount.length == 2) {
       if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList.contains('red') && !chooseCount[1].classList.contains('black')) {
         chooseCount[1].classList.add('red');
         chooseCount[1].classList.remove('choose');
@@ -36,12 +67,12 @@ function freshBoard() {
         chooseCount[1].classList.add('black');
         chooseCount[1].classList.remove('choose');
         chooseCount[0].classList.remove('black', 'choose');
-      } 
+      }
     }
     if (chooseCount.length == 3) {
       [...darkSpaces].classList.remove('choose'); //-------------------"cannot read properties of undefined: reading remove"
     }
-  })); //end of .choose classList.add function
+  })); //end of .choose classList.add function*/
 
 
 
