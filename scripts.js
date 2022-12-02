@@ -26,22 +26,22 @@ function freshBoard() {
     this.classList.toggle('choose');
     //set up counter for chosen pieces
     chooseCount = document.getElementsByClassName('choose'); //collection of selected spaces
-    
+
     if (chooseCount.length == 2) {
-      if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList.contains('red', 'black')) {
-        chooseCount[0].classList.remove('red', 'choose');
-        chooseCount[1].classList.add('red');//----------------------"cannot read properties of undefined: reading classList"
+      if (chooseCount[0].classList.contains('red') && !chooseCount[1].classList.contains('red') && !chooseCount[1].classList.contains('black')) {
+        chooseCount[1].classList.add('red');
         chooseCount[1].classList.remove('choose');
-      } else if (chooseCount[0].classList.contains('black') && !chooseCount[1].classList.contains('black', 'red')) {
-        chooseCount[0].classList.remove('black', 'choose');
+        chooseCount[0].classList.remove('red', 'choose');
+      } else if (chooseCount[0].classList.contains('black') && !chooseCount[1].classList.contains('red') && !chooseCount[1].classList.contains('black')) {
         chooseCount[1].classList.add('black');
         chooseCount[1].classList.remove('choose');
-      }
+        chooseCount[0].classList.remove('black', 'choose');
+      } 
     }
     if (chooseCount.length >= 3) {
       [...darkSpaces].classList.remove('choose'); //-------------------"cannot read properties of undefined: reading remove"
     }
-  }));//end of .choose classList.add function
+  })); //end of .choose classList.add function
 
 
 
@@ -52,5 +52,3 @@ function freshBoard() {
 
 
 } //end of freshBoard
-
-
