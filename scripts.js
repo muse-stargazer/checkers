@@ -38,7 +38,7 @@ function freshBoard() {
         chooseCount[0].classList.remove('black', 'choose');
       } 
     }
-    if (chooseCount.length >= 3) {
+    if (chooseCount.length == 3) {
       [...darkSpaces].classList.remove('choose'); //-------------------"cannot read properties of undefined: reading remove"
     }
   })); //end of .choose classList.add function

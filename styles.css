@@ -91,6 +91,15 @@ div.choose {
     background-color: white;
 }
 
+/*adding king class*/
+.black.crown {
+  background-image: url (images/crown.png), url(images/black-checker-piece.png);  
+}
+
+.red.crown {
+  background-image: url (images/crown.png), url(images/red-checker-piece.png); 
+}
+
 #attribution {
   position: fixed;
   bottom: 0;
