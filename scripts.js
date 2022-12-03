@@ -39,21 +39,21 @@ function freshBoard() {
       }
       //the space has a piece, add .choose
       this.classList.add('choose');
-    } else {
+    } else { //first selection was a piece
       if (this.classList.contains('red') || this.classList.contains('black')) {
         //there is a piece on second space, invalid move
         chosenSpace.classList.remove('choose');
         return;
       }
-      //we clicked a dark space with a piece on it, valid move
-      chosenWasRed = chosenSpace.classList.contains('red');
-      this.classList.add(chosenWasRed ? 'red' : 'black');
-      chosenSpace.classList.remove('choose');
-      chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black');
+      //we clicked a dark space with a piece on it, and second space with no piece: valid move
+      chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
+      this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
+      chosenSpace.classList.remove('choose'); //remove choose class 
+      chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
     } //end of select function
 
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
 
-  }))
+  }))//end of select function
 } //end of freshBoard
