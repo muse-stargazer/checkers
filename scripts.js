@@ -39,6 +39,7 @@ function freshBoard() {
       }
       //the space has a piece, add .choose
       this.classList.add('choose');
+      //--check here if surrounding spaces are empty?
     } else { //first selection was a piece
       if (this.classList.contains('red') || this.classList.contains('black')) {
         //there is a piece on second space, invalid move
@@ -50,10 +51,11 @@ function freshBoard() {
       this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
       chosenSpace.classList.remove('choose'); //remove choose class 
       chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
-    } //end of select function
+    
+    } //end of first click was piece
 
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
 
-  }))//end of select function
+  }))//end of select function on dark spaces
 } //end of freshBoard
