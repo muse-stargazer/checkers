@@ -9,6 +9,7 @@ body {
 }
 
 /*title styling*/
+
 #header {
   background-color: rgba(128, 64, 0, .8);
   font-family: arial, sans-serif;
@@ -26,7 +27,7 @@ body {
   font-size: 4vh;
   padding-left: 6px;
   padding-right: 6px;
-  }
+}
 
 #newGameButton {
   height: 5vh;
@@ -48,6 +49,7 @@ body {
 }
 
 /*hover effect*/
+
 #newGameButton:hover {
   background-color: lightgreen;
   color: black;
@@ -55,6 +57,7 @@ body {
 }
 
 /*overall game board*/
+
 #board {
   height: 80vh;
   width: 80vh;
@@ -68,6 +71,7 @@ body {
 }
 
 /*board spaces*/
+
 div.dark {
   background-color: blue;
 }
@@ -77,6 +81,7 @@ div.light {
 }
 
 /*pieces*/
+
 div.dark.red {
   background-image: url(images/red-checker-piece.png);
   background-size: cover;
@@ -88,43 +93,40 @@ div.dark.black {
 }
 
 /*function to select piece*/
+
 div.choose {
-    background-color: white;
+  background-color: white;
 }
 
 /*adding king class*/
-.black.crown {
-  background-image: url (images/crown.png), url(images/black-checker-piece.png);  
+
+div.black.crown {
+  background-image: url(images/crown.png), url(images/black-checker-piece.png);
+  background-size: contain, cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.red.crown {
-  background-image: url (images/crown.png), url(images/red-checker-piece.png); 
+div.red.crown {
+  background-image: url(images/crown.png), url(images/red-checker-piece.png);
+  background-size: contain, cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #attribution {
   position: fixed;
   bottom: 0;
-  height: 2.5vh;
+  height: 3vh;
   width: 100vw;
   background-color: rgba(128, 64, 0, .8);
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-content: space-evenly;
-  padding-bottom: 40px;
-  padding-top: 0;
+  padding-bottom: 4vh;
 }
 
 #attribution p {
-  font-size: 1.5vh;  
+  font-size: 1.6vh;
 }
-
-
-
-
-
-
-
-
-

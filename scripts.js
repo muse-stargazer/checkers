@@ -45,6 +45,7 @@ function freshBoard() {
         chosenSpace.classList.remove('choose');
         return;
       }
+      
       //we clicked a dark space with a piece on it, and second space with no piece: valid move -if within proximity-
       chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
       this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
@@ -55,6 +56,10 @@ function freshBoard() {
     } //end of first click was piece
 
     //if a piece was jumped, run function 'jump'
+    
+    //add crown classes
+    [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
+    [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
 
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
