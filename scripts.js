@@ -49,6 +49,11 @@ function freshBoard() {
       //we clicked a dark space with a piece on it, and second space with no piece: valid move -if within proximity-
       chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
       this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
+      chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown
+      if (chosenWasCrown) {
+        this.classList.add('crown');
+        chosenSpace.classList.remove('crown');
+      }
       chosenSpace.classList.remove('choose'); //remove choose class 
       chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
 
