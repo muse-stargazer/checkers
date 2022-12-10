@@ -62,39 +62,52 @@ function freshBoard() {
     if (toRow !== fromRow + moveDirection || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
       //make an exception for skips
       if (toRow === fromRow + (2 * moveDirection) &&
-        toCol === fromCol + 2 &&
-        document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol + 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
+        toCol === fromCol + 2
       ) {
         //skip piece
+        const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol + 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
+        if (!eat) {
+          //illegal move, nothing to skip
+          return;
+        }
+        eat.classList.remove(chosenWasRed ? 'black' : 'red');
+
       } else if (toRow === fromRow + (2 * moveDirection) &&
-        toCol === fromCol - 2 &&
-        document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol - 1) + '"].' + (chosenWasRed ? 'black' : 'red'))) {
+        toCol === fromCol - 2
+      ) {
         //skip piece
+        const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol - 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
+        if (!eat) {
+          //illegal move, nothing to skip
+          return;
+        }
+        eat.classList.remove(chosenWasRed ? 'black' : 'red');
+
       } else {
         return;
       }
     } //end of first click was piece
-    
-    
-
-  this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
 
 
 
-  if (chosenWasCrown) {
-    this.classList.add('crown');
-    chosenSpace.classList.remove('crown'); //ensure crown class moves with piece
-  }
-  chosenSpace.classList.remove('choose'); //remove choose class 
-  chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
+    this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
 
 
-  //add crown classes
-  [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
-  [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
+
+    if (chosenWasCrown) {
+      this.classList.add('crown');
+      chosenSpace.classList.remove('crown'); //ensure crown class moves with piece
+    }
+    chosenSpace.classList.remove('choose'); //remove choose class 
+    chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
 
 
-  //if a piece was jumped, run function 'jump'
+    //add crown classes
+    [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
+    [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
+
+
+    //if a piece was jumped, run function 'jump'
 
 
 
@@ -103,10 +116,10 @@ function freshBoard() {
     blackCount = blackPieces.length; //number of black pieces left
 
     //when redCount=0, Black wins and vice versa
-    if (redCount == 0) {
+    if (redCount === 0) {
       alert('Black Wins!');
     }
-    if (blackCount == 0) {
+    if (blackCount === 0) {
       alert('Red Wins!');
     }
 
