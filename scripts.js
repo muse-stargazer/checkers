@@ -9,10 +9,7 @@ var chosenSpace = null;
 var redCount = null;
 var blackCount = null;
 
-//function to apply freshBoard to all newGame class --not currently working, so have function in html--------------------
-//[...document.getElementsByClassName('newGame')].onclick = freshBoard;
-
-//attached to #newGameButton currently, should eventually be attached to .newGame 
+//attached to new game button
 function freshBoard() {
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //makes pieces populate at correct starting positions, marked by blank piece classes
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.remove('black', 'crown'));
@@ -50,85 +47,70 @@ function freshBoard() {
 
     //we clicked a dark space with a piece on it, and second space with no piece: valid move -if within proximity-
     var chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
-    var chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown    
+    var chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown  
 
-    /** TED CODE */
-    const fromRow = +chosenSpace.dataset.row;
-    const fromCol = +chosenSpace.dataset.col;
+    //where are we coming fromCol
+    const fromRow = Number(chosenSpace.dataset.row);
+    const fromCol = Number(chosenSpace.dataset.col);
 
-    const toRow = +this.dataset.row;
-    const toCol = +this.dataset.col;
+    //where are we moving to
+    const toRow = Number(this.dataset.row);
+    const toCol = Number(this.dataset.col);
 
-    if (chosenWasRed) {
-      // Red pieces move to higher rows
-      if (toRow !== fromRow + 1 || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
-        // Make exception for skips
-        if (toRow === fromRow + 2 && toCol === fromCol + 2 && document.querySelector('[data-row="' + (fromRow + 1) + '"][data-col="' + (fromCol + 1)  + '"].black')) {
-          // WE SKIPPIN YA'LL 
-        } else if (toRow === fromRow + 2 && toCol === fromCol - 2 && document.querySelector('[data-row="' + (fromRow + 1) + '"][data-col="' + (fromCol - 1)  + '"].black')) {
-          // We are skipping
-        } else {
-          return;
-        }
+    //red pieces move up row numbers (down the board)
+    var moveDirection = chosenWasRed ? 1 : -1;
+    if (toRow !== fromRow + moveDirection || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
+      //make an exception for skips
+      if (toRow === fromRow + (2 * moveDirection) &&
+        toCol === fromCol + 2 &&
+        document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol + 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
+      ) {
+        //skip piece
+      } else if (toRow === fromRow + (2 * moveDirection) &&
+        toCol === fromCol - 2 &&
+        document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol - 1) + '"].' + (chosenWasRed ? 'black' : 'red'))) {
+        //skip piece
+      } else {
+        return;
       }
-    } else {
-      // Vlack pieces move to lower rows
-      if (toRow !== fromRow - 1 || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
-        // Make exception for skips
-        if (toRow === fromRow - 2 && toCol === fromCol + 2 && document.querySelector('[data-row="' + (fromRow - 1) + '"][data-col="' + (fromCol + 1)  + '"].red')) {
-          // WE SKIPPIN YA'LL 
-        } else if (toRow === fromRow - 2 && toCol === fromCol - 2 && document.querySelector('[data-row="' + (fromRow - 1) + '"][data-col="' + (fromCol - 1)  + '"].red')) {
-          // We are skipping
-        } else {
-          return;
-        }
-      }
+    } //end of first click was piece
+    
+    
+
+  this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
+
+
+
+  if (chosenWasCrown) {
+    this.classList.add('crown');
+    chosenSpace.classList.remove('crown'); //ensure crown class moves with piece
+  }
+  chosenSpace.classList.remove('choose'); //remove choose class 
+  chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
+
+
+  //add crown classes
+  [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
+  [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
+
+
+  //if a piece was jumped, run function 'jump'
+
+
+
+
+    redCount = redPieces.length; //number of red pieces left
+    blackCount = blackPieces.length; //number of black pieces left
+
+    //when redCount=0, Black wins and vice versa
+    if (redCount == 0) {
+      alert('Black Wins!');
+    }
+    if (blackCount == 0) {
+      alert('Red Wins!');
     }
 
-
-    /**
-    
-    
-    
-    */
-
-    /** END TED CODE */
-
-
-    this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
-
-
-
-    if (chosenWasCrown) {
-      this.classList.add('crown');
-      chosenSpace.classList.remove('crown'); //ensure crown class moves with piece
-    }
-    chosenSpace.classList.remove('choose'); //remove choose class 
-    chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
-
-
-    //add crown classes
-    [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
-    [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
-
-
-    //if a piece was jumped, run function 'jump'
-
-
-  } //end of first click was piece
-
-
-  redCount = redPieces.length; //number of red pieces left
-  blackCount = blackPieces.length; //number of black pieces left
-
-  //when redCount=0, Black wins and vice versa
-  if (redCount == 0) {
-    alert('Black Wins!');
   }
-  if (blackCount == 0) {
-    alert('Red Wins!');
-  }
-
 })) //end of select function on dark spaces
 
 
