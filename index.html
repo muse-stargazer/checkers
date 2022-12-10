@@ -13,177 +13,177 @@
   <style>
     /* on-page CSS, if any, goes here */
   </style>
-  
+
   <!-- external and on-page JavaScript goes here -->
-		<script type="text/javascript" src="scripts.js" defer></script>
-		<script>
-			// on-page JavaScript, if any, goes here
-		</script>
+  <script type="text/javascript" src="scripts.js" defer></script>
+  <script>
+    // on-page JavaScript, if any, goes here
+  </script>
 
 </head>
 
 <body>
-  
+
   <!--title-->
   <div id="header">
     <h1>
       Grandma's Checkers
     </h1>
   </div>
-  
-  <button class=newGame id=newGameButton type=button onclick="freshBoard()">
+
+  <button class="newGame" id="newGameButton" type="button" onclick="freshBoard()">
     <p>
       New Game
     </p>
   </button>
-  
+
   <!--begin fresh board-->
   <div id="board">
 
     <!--rowA-->
     <div class="light">
     </div>
-    <div class="dark piece rowA" data-row="1" data-col="2" id="a2">
+    <div class="dark piece rowA" data-row="1" data-col="2">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece rowA" data-row="1" data-col="4" id="a4">
+    <div class="dark piece rowA" data-row="1" data-col="4">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece rowA" data-row="1" data-col="6" id="a6">
+    <div class="dark piece rowA" data-row="1" data-col="6">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece rowA" data-row="1" data-col="8" id="a8">
+    <div class="dark piece rowA" data-row="1" data-col="8">
     </div>
 
     <!--rowB-->
-    <div class="dark piece" data-row="2" data-col="1" id="b1">
+    <div class="dark piece" data-row="2" data-col="1">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="2" data-col="3" id="b3">
+    <div class="dark piece" data-row="2" data-col="3">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="2" data-col="5" id="b5">
+    <div class="dark piece" data-row="2" data-col="5">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="2" data-col="7" id="b7">
+    <div class="dark piece" data-row="2" data-col="7">
     </div>
     <div class="light">
     </div>
 
     <!--rowC-->
-   <div class="light">
+    <div class="light">
     </div>
-    <div class="dark piece" data-row="3" data-col="2" id="c2">
+    <div class="dark piece" data-row="3" data-col="2">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="3" data-col="4" id="c4">
+    <div class="dark piece" data-row="3" data-col="4">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="3" data-col="6" id="c6">
+    <div class="dark piece" data-row="3" data-col="6">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece" data-row="3" data-col="8" id="c8">
+    <div class="dark piece" data-row="3" data-col="8">
     </div>
 
     <!--rowD-->
-    <div class="dark blank" data-row="4" data-col="1" id="d1">
+    <div class="dark blank" data-row="4" data-col="1">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="4" data-col="3" id="d3">
+    <div class="dark blank" data-row="4" data-col="3">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="4" data-col="5" id="d5">
+    <div class="dark blank" data-row="4" data-col="5">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="4" data-col="7" id="d7">
+    <div class="dark blank" data-row="4" data-col="7">
     </div>
     <div class="light">
     </div>
 
     <!--rowE-->
-   <div class="light">
+    <div class="light">
     </div>
-    <div class="dark blank" data-row="5" data-col="2" id="e2">
+    <div class="dark blank" data-row="5" data-col="2">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="5" data-col="4" id="e4">
+    <div class="dark blank" data-row="5" data-col="4">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="5" data-col="6" id="e6">
+    <div class="dark blank" data-row="5" data-col="6">
     </div>
     <div class="light">
     </div>
-    <div class="dark blank" data-row="5" data-col="8" id="e8">
+    <div class="dark blank" data-row="5" data-col="8">
     </div>
-    
+
     <!--rowF-->
-    <div class="dark piece2" data-row="6" data-col="1" id="f1">
+    <div class="dark piece2" data-row="6" data-col="1">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="6" data-col="3" id="f3">
+    <div class="dark piece2" data-row="6" data-col="3">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="6" data-col="5" id="f5">
+    <div class="dark piece2" data-row="6" data-col="5">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="6" data-col="7" id="f7">
+    <div class="dark piece2" data-row="6" data-col="7">
     </div>
     <div class="light">
     </div>
-    
+
     <!--rowG-->
-   <div class="light">
+    <div class="light">
     </div>
-    <div class="dark piece2" data-row="7" data-col="2" id="g2">
+    <div class="dark piece2" data-row="7" data-col="2">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="7" data-col="4" id="g4">
+    <div class="dark piece2" data-row="7" data-col="4">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="7" data-col="6" id="g6">
+    <div class="dark piece2" data-row="7" data-col="6">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2" data-row="7" data-col="8" id="g8">
+    <div class="dark piece2" data-row="7" data-col="8">
     </div>
-    
+
     <!--rowH-->
-    <div class="dark piece2 rowH" data-row="8" data-col="1" id="h1">
+    <div class="dark piece2 rowH" data-row="8" data-col="1">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2 rowH" data-row="8" data-col="3" id="h3">
+    <div class="dark piece2 rowH" data-row="8" data-col="3">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2 rowH" data-row="8" data-col="5" id="h5">
+    <div class="dark piece2 rowH" data-row="8" data-col="5">
     </div>
     <div class="light">
     </div>
-    <div class="dark piece2 rowH" data-row="8" data-col="7" id="h7">
+    <div class="dark piece2 rowH" data-row="8" data-col="7">
     </div>
     <div class="light">
     </div>
-    
+
   </div>
   <!--end of board -->
 
