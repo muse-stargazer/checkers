@@ -16,10 +16,10 @@ var blackCount = null;
 //attached to #newGameButton currently, should eventually be attached to .newGame 
 function freshBoard() {
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //makes pieces populate at correct starting positions, marked by blank piece classes
-  [...document.getElementsByClassName('piece')].forEach(div => div.classList.remove('black'));
+  [...document.getElementsByClassName('piece')].forEach(div => div.classList.remove('black', 'crown'));
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.add('black'));
-  [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red'));
-  [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose')); //clears middle rows so only correct number of pieces show
+  [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red', 'crown'));
+  [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose', 'crown')); //clears middle rows so only correct number of pieces show
 
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
