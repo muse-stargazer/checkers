@@ -45,8 +45,6 @@ function freshBoard() {
         chosenSpace.classList.remove('choose');
         return;
       }
-      
-      
 
       //we clicked a dark space with a piece on it, and second space with no piece: valid move -if within proximity-
       chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
@@ -54,22 +52,22 @@ function freshBoard() {
       chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown
       if (chosenWasCrown) {
         this.classList.add('crown');
-        chosenSpace.classList.remove('crown');//ensure crown class moves with piece
+        chosenSpace.classList.remove('crown'); //ensure crown class moves with piece
       }
       chosenSpace.classList.remove('choose'); //remove choose class 
       chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
+
+
+      //add crown classes
+      [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
+      [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
       
-     
-       //add crown classes
-    [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
-    [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
+      
+      //if a piece was jumped, run function 'jump'
 
 
     } //end of first click was piece
 
-   
-
-    //if a piece was jumped, run function 'jump'
 
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
