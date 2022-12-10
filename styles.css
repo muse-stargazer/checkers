@@ -16,6 +16,7 @@ body {
   top: 1vh;
   position: absolute;
   display: flex;
+  flex-wrap: wrap;
   left: 50%;
   transform: translatex(-50%);
   height: 7vh;
@@ -117,16 +118,18 @@ div.red.crown {
 #attribution {
   position: fixed;
   bottom: 0;
-  height: 3vh;
+  left: 0;
+  height: auto;
   width: 100vw;
   background-color: rgba(128, 64, 0, .8);
   color: white;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-bottom: 4vh;
+  align-content: center;
 }
 
 #attribution p {
-  font-size: 1.6vh;
+  font-size: 1rem;
 }

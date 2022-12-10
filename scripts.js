@@ -11,7 +11,7 @@ var blackCount = null;
 
 //attached to new game button
 function freshBoard() {
-  [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //makes pieces populate at correct starting positions, marked by blank piece classes
+  [...document.getElementsByClassName('piece')].forEach(div => div.classList.add('red')); //pieces populate at correct starting positions, marked by blank piece classes
   [...document.getElementsByClassName('piece')].forEach(div => div.classList.remove('black', 'crown'));
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.add('black'));
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red', 'crown'));
@@ -49,7 +49,7 @@ function freshBoard() {
     var chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
     var chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown  
 
-    //where are we coming fromCol
+    //where are we coming from
     const fromRow = Number(chosenSpace.dataset.row);
     const fromCol = Number(chosenSpace.dataset.col);
 
