@@ -10,5 +10,3 @@ Maybe the logic is that if your team is in that direction, stop looking, else if
 
 .red.rowA can only move to .rowB, etc
 .black.rowH can only move to .rowG, etc
-.red.rowH classList.add('crown')
-.black.rowA classList.add('crown)
