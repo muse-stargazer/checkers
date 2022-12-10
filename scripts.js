@@ -57,30 +57,34 @@ function freshBoard() {
     const toRow = Number(this.dataset.row);
     const toCol = Number(this.dataset.col);
 
-    //red pieces move up row numbers (down the board)
+    //red pieces move up row numbers (down the board), and black move down row numbers (up the board)
     var moveDirection = chosenWasRed ? 1 : -1;
+
+    // if the move isn't one diagonal space forward
     if (toRow !== fromRow + moveDirection || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
       //make an exception for skips
       if (toRow === fromRow + (2 * moveDirection) &&
         toCol === fromCol + 2
       ) {
-        //skip piece
+        //find if there's a piece to eat to check legality of move
         const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol + 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
         if (!eat) {
           //illegal move, nothing to skip
           return;
         }
+        //removes the eaten piece from the board
         eat.classList.remove(chosenWasRed ? 'black' : 'red');
 
       } else if (toRow === fromRow + (2 * moveDirection) &&
-        toCol === fromCol - 2
+        toCol === fromCol - 2 //if we try to jump 2 diagonal spaces in other direction (other team)
       ) {
-        //skip piece
+        //find if there's a piece to eat to check legality of move
         const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol - 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
         if (!eat) {
-          //illegal move, nothing to skip
+          //if there's no piece there, illegal move, nothing to skip and cannot move 2 spaces
           return;
         }
+        //removes the eaten piece from the board
         eat.classList.remove(chosenWasRed ? 'black' : 'red');
 
       } else {
@@ -89,10 +93,7 @@ function freshBoard() {
     } //end of first click was piece
 
 
-
     this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
-
-
 
     if (chosenWasCrown) {
       this.classList.add('crown');
@@ -101,16 +102,9 @@ function freshBoard() {
     chosenSpace.classList.remove('choose'); //remove choose class 
     chosenSpace.classList.remove(chosenWasRed ? 'red' : 'black'); //remove piece from original position
 
-
-    //add crown classes
+    //add crown classes upon a team reaching the other side
     [...document.getElementsByClassName('red rowH')].forEach(div => div.classList.add('crown'));
     [...document.getElementsByClassName('black rowA')].forEach(div => div.classList.add('crown'));
-
-
-    //if a piece was jumped, run function 'jump'
-
-
-
 
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
