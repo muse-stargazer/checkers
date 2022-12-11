@@ -23,6 +23,87 @@ function freshBoard() {
   [...darkSpaces].forEach(div => div.classList.remove('choose')); //clear all selections on New Game
 } //end of freshBoard
 
+// returns a space by row/col coordinates
+function getSpace(row, col) {
+  return document.querySelector('[data-row="' + row + '"][data-col="' + col + '"]');
+}
+
+/**
+ * isLegalMove takes a start space (which contains a red or black piece) and an endSpace
+ * It returns:
+ *   false if the move is illegal
+ *.  true if the move is legal, and does not "eat" a piece
+ *.  the skipped space (truthy) if the move is a legal jump/eat
+ */
+function isLegalMove(startSpace, endSpace) {
+  var isRed = startSpace.classList.contains('red');
+  var isBlack = !isRed;
+  var isKing = startSpace.classList.contains('crown');
+
+  //is there a piece at endspace
+  if (endSpace.classList.contains('red') || endSpace.classList.contains('black')) {
+    return false;
+  }
+
+  //where are we coming from
+  const fromRow = Number(startSpace.dataset.row);
+  const fromCol = Number(startSpace.dataset.col);
+
+  //where are we moving to
+  const toRow = Number(endSpace.dataset.row);
+  const toCol = Number(endSpace.dataset.col);
+
+  var canMoveUp = isRed || isKing;
+  var canMoveDown = isBlack || isKing;
+
+  //legal single row move up
+  if (canMoveUp && toRow === fromRow + 1 && (toCol === fromCol + 1 || toCol === fromCol - 1)) {
+    return true;
+  }
+
+  //legal single row move down
+  if (canMoveDown && toRow === fromRow - 1 && (toCol === fromCol + 1 || toCol === fromCol - 1)) {
+    return true;
+  }
+
+  //legal jump (two rows) up to the left
+  if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol - 2) {
+    let jumpedSpace = getSpace(fromRow + 1, fromCol - 1)
+    if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+  }
+
+  //legal jump (two rows) up to the right
+  if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol + 2) {
+    let jumpedSpace = getSpace(fromRow + 1, fromCol + 1)
+    if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+  }
+
+  //legal jump (two rows) down to the left
+  if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol - 2) {
+    let jumpedSpace = getSpace(fromRow - 1, fromCol - 1)
+    if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+  }
+
+  //legal jump (two rows) down to the right
+  if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol + 2) {
+    let jumpedSpace = getSpace(fromRow - 1, fromCol + 1)
+    if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+  }
+
+  return false;
+
+
+} // end of isLegalMove
+
+
 //add visual selector to space 
 [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
 
@@ -39,59 +120,21 @@ function freshBoard() {
   } else {
     //we have selected a piece already
 
-    if (this.classList.contains('red') || this.classList.contains('black')) {
-      //there is a piece on second space, invalid move
-      chosenSpace.classList.remove('choose');
-      return;
-    }
-
     //we clicked a dark space with a piece on it, and second space with no piece: valid move -if within proximity-
     var chosenWasRed = chosenSpace.classList.contains('red'); //piece we chose was red
     var chosenWasCrown = chosenSpace.classList.contains('crown'); //piece we chose has crown  
 
-    //where are we coming from
-    const fromRow = Number(chosenSpace.dataset.row);
-    const fromCol = Number(chosenSpace.dataset.col);
+    const isLegal = isLegalMove(chosenSpace, this);
 
-    //where are we moving to
-    const toRow = Number(this.dataset.row);
-    const toCol = Number(this.dataset.col);
+    if (!isLegal) {
+      // Illegal move
+      chosenSpace.classList.remove('choose');
+      return;
+    }
 
-    //red pieces move up row numbers (down the board), and black move down row numbers (up the board)
-    var moveDirection = chosenWasRed ? 1 : -1;
-
-    // if the move isn't one diagonal space forward
-    if (toRow !== fromRow + moveDirection || (toCol !== fromCol + 1 && toCol !== fromCol - 1)) {
-      //make an exception for skips
-      if (toRow === fromRow + (2 * moveDirection) &&
-        toCol === fromCol + 2
-      ) {
-        //find if there's a piece to eat to check legality of move
-        const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol + 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
-        if (!eat) {
-          //illegal move, nothing to skip
-          return;
-        }
-        //removes the eaten piece from the board
-        eat.classList.remove(chosenWasRed ? 'black' : 'red');
-
-      } else if (toRow === fromRow + (2 * moveDirection) &&
-        toCol === fromCol - 2 //if we try to jump 2 diagonal spaces in other direction (other team)
-      ) {
-        //find if there's a piece to eat to check legality of move
-        const eat = document.querySelector('[data-row="' + (fromRow + moveDirection) + '"][data-col="' + (fromCol - 1) + '"].' + (chosenWasRed ? 'black' : 'red'))
-        if (!eat) {
-          //if there's no piece there, illegal move, nothing to skip and cannot move 2 spaces
-          return;
-        }
-        //removes the eaten piece from the board
-        eat.classList.remove(chosenWasRed ? 'black' : 'red');
-
-      } else {
-        return;
-      }
-    } //end of first click was piece
-
+    if (isLegal !== true) {
+      isLegal.classList.remove('red', 'black');
+    }
 
     this.classList.add(chosenWasRed ? 'red' : 'black'); //if the piece was red, make new space red; if not, make new space black
 
