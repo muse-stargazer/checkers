@@ -8,6 +8,7 @@ var darkSpaces = document.getElementsByClassName('dark'); //collection of all da
 var chosenSpace = null;
 var redCount = null;
 var blackCount = null;
+var turn = 'red';
 
 //attached to new game button
 function freshBoard() {
@@ -17,6 +18,7 @@ function freshBoard() {
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red', 'crown'));
   [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose', 'crown')); //clears middle rows so only correct number of pieces show
 
+  turn = 'red';
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
 
@@ -115,6 +117,9 @@ function isLegalMove(startSpace, endSpace) {
       //if the space we select is empty, do nothing
       return;
     }
+    if (!this.classList.contains(turn)) {
+      return;
+    }
     //the space has a piece, add .choose
     this.classList.add('choose');
   } else {
@@ -152,6 +157,7 @@ function isLegalMove(startSpace, endSpace) {
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
 
+    
     //when redCount=0, Black wins and vice versa
     if (redCount === 0) {
       alert('Black Wins!');
@@ -160,6 +166,8 @@ function isLegalMove(startSpace, endSpace) {
       alert('Red Wins!');
     }
 
+    turn = turn === 'red' ? 'black' : 'red'
+    
   }
 })) //end of select function on dark spaces
 
