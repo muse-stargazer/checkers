@@ -23,15 +23,7 @@ function freshBoard() {
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
 
   [...darkSpaces].forEach(div => div.classList.remove('choose')); //clear all selections on New Game
-  
-  //make turn selector apparent --doesn't work
-  if (turn !== 'red') {
-    document.getElementById('blackTurn').display=block;
-    document.getElementById('redTurn').display=none;
-  } else {
-    document.getElementById('redTurn').display=block;
-    document.getElementById('blackTurn').display=none;
-  }
+
 } //end of freshBoard
 
 // returns a space by row/col coordinates
@@ -175,7 +167,6 @@ function isLegalMove(startSpace, endSpace) {
 
   return false;
 
-
 } // end of isLegalMove
 
 
@@ -183,7 +174,7 @@ function isLegalMove(startSpace, endSpace) {
 [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
 
   chosenSpace = document.querySelector('.choose');
-  
+
   //if we haven't selected a space yet
   if (!chosenSpace) {
     if (!this.classList.contains('red') && !this.classList.contains('black')) {
@@ -231,7 +222,6 @@ function isLegalMove(startSpace, endSpace) {
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
 
-
     //when redCount=0, Black wins and vice versa
     if (redCount === 0) {
       alert('Black Wins!');
@@ -242,7 +232,16 @@ function isLegalMove(startSpace, endSpace) {
 
     turn = turn === 'red' ? 'black' : 'red'
 
-  }
+    //make turn selector apparent --doesn't work
+    if (turn !== 'red') {
+      document.getElementById('redTurn').style.display = 'none';
+      document.getElementById('blackTurn').style.display = 'block';
+    } else {
+      document.getElementById('blackTurn').style.display = 'none';
+      document.getElementById('redTurn').style.display = 'block';
+    }
+    
+  } //end of already selected one piece
 })) //end of select function on dark spaces
 
 freshBoard();

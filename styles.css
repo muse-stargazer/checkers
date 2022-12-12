@@ -120,7 +120,7 @@ div.red.crown {
   position: absolute;
   background-color: gray;
   font-family: arial, sans-serif;
-  font-style: bolder;
+  font-weight: bold;
   padding: 4px;
   left: 50%;
   transform: translatex(-50%);
