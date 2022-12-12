@@ -82,13 +82,13 @@ function isLegalMove(startSpace, endSpace) {
     if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpR;
     }
   }
@@ -106,13 +106,13 @@ function isLegalMove(startSpace, endSpace) {
     if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpR;
     }
   }
@@ -130,13 +130,13 @@ function isLegalMove(startSpace, endSpace) {
     if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpR;
     }
   }
@@ -154,13 +154,13 @@ function isLegalMove(startSpace, endSpace) {
     if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
-      turn = ('red' ? 'red' : 'black');
+      turn = turn === 'red' ? 'red' : 'black';
       return nextJumpR;
     }
   }
@@ -230,9 +230,9 @@ function isLegalMove(startSpace, endSpace) {
       alert('Red Wins!');
     }
 
-    turn = turn === 'red' ? 'black' : 'red'
+    turn = turn === 'red' ? 'black' : 'red';
 
-    //make turn selector apparent --doesn't work
+    //make turn selector apparent 
     if (turn !== 'red') {
       document.getElementById('redTurn').style.display = 'none';
       document.getElementById('blackTurn').style.display = 'block';
