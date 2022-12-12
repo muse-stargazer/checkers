@@ -78,14 +78,16 @@ function isLegalMove(startSpace, endSpace) {
     let nextMoveL = getSpace(fromRow + 4, fromCol - 4);
     let nextJumpR = getSpace(fromRow + 3, fromCol - 1);
     let nextMoveR = getSpace(fromRow + 4, fromCol + 0);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveL.classList.contains('black') && 
-        !nextMoveL.classList.contains('red')) {
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveL.classList.contains('black') &&
+      !nextMoveL.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveR.classList.contains('black') && 
-        !nextMoveR.classList.contains('red')) {
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveR.classList.contains('black') &&
+      !nextMoveR.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
   }
@@ -100,14 +102,16 @@ function isLegalMove(startSpace, endSpace) {
     let nextMoveL = getSpace(fromRow + 4, fromCol + 0);
     let nextJumpR = getSpace(fromRow + 3, fromCol + 3);
     let nextMoveR = getSpace(fromRow + 4, fromCol + 4);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveL.classList.contains('black') && 
-        !nextMoveL.classList.contains('red')) {
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveL.classList.contains('black') &&
+      !nextMoveL.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveR.classList.contains('black') && 
-        !nextMoveR.classList.contains('red')) {
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveR.classList.contains('black') &&
+      !nextMoveR.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
   }
@@ -122,14 +126,16 @@ function isLegalMove(startSpace, endSpace) {
     let nextMoveL = getSpace(fromRow - 4, fromCol - 4);
     let nextJumpR = getSpace(fromRow - 3, fromCol - 1);
     let nextMoveR = getSpace(fromRow - 4, fromCol + 0);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveL.classList.contains('black') && 
-        !nextMoveL.classList.contains('red')) {
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveL.classList.contains('black') &&
+      !nextMoveL.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveR.classList.contains('black') && 
-        !nextMoveR.classList.contains('red')) {
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveR.classList.contains('black') &&
+      !nextMoveR.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
   }
@@ -144,14 +150,16 @@ function isLegalMove(startSpace, endSpace) {
     let nextMoveL = getSpace(fromRow - 4, fromCol + 0);
     let nextJumpR = getSpace(fromRow - 3, fromCol + 3);
     let nextMoveR = getSpace(fromRow - 4, fromCol + 4);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveL.classList.contains('black') && 
-        !nextMoveL.classList.contains('red')) {
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveL.classList.contains('black') &&
+      !nextMoveL.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
-        !nextMoveR.classList.contains('black') && 
-        !nextMoveR.classList.contains('red')) {
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+      !nextMoveR.classList.contains('black') &&
+      !nextMoveR.classList.contains('red')) {
+      turn = ('red' ? 'red' : 'black');
       return jumpedSpace;
     }
   }
