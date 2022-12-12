@@ -18,13 +18,13 @@ body {
   flex-wrap: wrap;
   left: 50%;
   transform: translatex(-50%);
-  height: 7vh;
+  height: 7%;
   align-content: center;
 }
 
 #header h1 {
   color: white;
-  font-size: 2.3rem;
+  font-size: 4vh;
   padding-left: 6px;
   padding-right: 6px;
 }
@@ -35,9 +35,10 @@ body {
   background-color: green;
   display: flex;
   border-radius: 20px;
-  right: 2vw;
-  top: 1vh;
+  right: 3%;
+  top: 2%;
   color: white;
+  margin-left: 3%;
 }
 
 #newGameButton p {
@@ -45,7 +46,7 @@ body {
   padding-left: 8px;
   padding-right: 8px;
   font-family: arial, sans-serif;
-  font-size: 2rem;
+  font-size: 3vh;
   
 }
 
@@ -111,7 +112,7 @@ div.red.crown {
 
 /*turn tracker*/
 .whoTurn {
-  font-size: 2rem;
+  font-size: 3vh;
   position: absolute;
   background-color: rgba(255, 201, 148, .8);
   font-family: arial, sans-serif;
@@ -138,8 +139,8 @@ div.red.crown {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 2vh;
-  width: 100vw;
+  height: 3%;
+  width: 100%;
   background-color: rgba(128, 64, 0, .8);
   color: white;
   display: flex;
@@ -150,7 +151,7 @@ div.red.crown {
 }
 
 #attribution p {
-  font-size: 1rem;
+  font-size: 1.8vh;
 }
 
 #attribution a {
