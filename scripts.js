@@ -18,7 +18,7 @@ function freshBoard() {
   [...document.getElementsByClassName('piece2')].forEach(div => div.classList.remove('red', 'crown'));
   [...document.getElementsByClassName('blank')].forEach(div => div.classList.remove('red', 'black', 'choose', 'crown')); //clears middle rows so only correct number of pieces show
 
-  turn = 'red';
+  turn = 'red'; //turn defaults to red
   redPieces = document.getElementsByClassName('red'); //collection of red pieces
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
 
@@ -31,7 +31,7 @@ function getSpace(row, col) {
 }
 
 /**
- * isLegalMove takes a start space (which contains a red or black piece) and an endSpace
+ * isLegalMove takes a startSpace (which contains a red or black piece) and an endSpace
  * It returns:
  *   false if the move is illegal
  *.  true if the move is legal, and does not "eat" a piece
@@ -40,7 +40,7 @@ function getSpace(row, col) {
 function isLegalMove(startSpace, endSpace) {
   var isRed = startSpace.classList.contains('red');
   var isBlack = !isRed;
-  var isKing = startSpace.classList.contains('crown');
+  var isKing = startSpace.classList.contains('crown'); //checks whether startSpace has red, black or crown classes
 
   //is there a piece at endspace
   if (endSpace.classList.contains('red') || endSpace.classList.contains('black')) {
@@ -58,44 +58,100 @@ function isLegalMove(startSpace, endSpace) {
   var canMoveUp = isRed || isKing;
   var canMoveDown = isBlack || isKing;
 
-  //legal single row move up
+  //legal single row move up - left or right
   if (canMoveUp && toRow === fromRow + 1 && (toCol === fromCol + 1 || toCol === fromCol - 1)) {
     return true;
   }
 
-  //legal single row move down
+  //legal single row move down - left or right
   if (canMoveDown && toRow === fromRow - 1 && (toCol === fromCol + 1 || toCol === fromCol - 1)) {
     return true;
   }
 
-  //legal jump (two rows) up to the left
+  //legal jump (two rows) up to the left - and check for next jump
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol - 2) {
     let jumpedSpace = getSpace(fromRow + 1, fromCol - 1)
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
       return jumpedSpace;
     }
+    let nextJumpL = getSpace(fromRow + 3, fromCol - 3);
+    let nextMoveL = getSpace(fromRow + 4, fromCol - 4);
+    let nextJumpR = getSpace(fromRow + 3, fromCol - 1);
+    let nextMoveR = getSpace(fromRow + 4, fromCol + 0);
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveL.classList.contains('black') && 
+        !nextMoveL.classList.contains('red')) {
+      return jumpedSpace;
+    }
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveR.classList.contains('black') && 
+        !nextMoveR.classList.contains('red')) {
+      return jumpedSpace;
+    }
   }
 
-  //legal jump (two rows) up to the right
+  //legal jump (two rows) up to the right - and check for next jump
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol + 2) {
-    let jumpedSpace = getSpace(fromRow + 1, fromCol + 1)
+    let jumpedSpace = getSpace(fromRow + 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+    let nextJumpL = getSpace(fromRow + 3, fromCol + 1);
+    let nextMoveL = getSpace(fromRow + 4, fromCol + 0);
+    let nextJumpR = getSpace(fromRow + 3, fromCol + 3);
+    let nextMoveR = getSpace(fromRow + 4, fromCol + 4);
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveL.classList.contains('black') && 
+        !nextMoveL.classList.contains('red')) {
+      return jumpedSpace;
+    }
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveR.classList.contains('black') && 
+        !nextMoveR.classList.contains('red')) {
       return jumpedSpace;
     }
   }
 
-  //legal jump (two rows) down to the left
+  //legal jump (two rows) down to the left - and check for next jump
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol - 2) {
-    let jumpedSpace = getSpace(fromRow - 1, fromCol - 1)
+    let jumpedSpace = getSpace(fromRow - 1, fromCol - 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+    let nextJumpL = getSpace(fromRow - 3, fromCol - 3);
+    let nextMoveL = getSpace(fromRow - 4, fromCol - 4);
+    let nextJumpR = getSpace(fromRow - 3, fromCol - 1);
+    let nextMoveR = getSpace(fromRow - 4, fromCol + 0);
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveL.classList.contains('black') && 
+        !nextMoveL.classList.contains('red')) {
+      return jumpedSpace;
+    }
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveR.classList.contains('black') && 
+        !nextMoveR.classList.contains('red')) {
       return jumpedSpace;
     }
   }
 
-  //legal jump (two rows) down to the right
+  //legal jump (two rows) down to the right - and check for next jump
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol + 2) {
-    let jumpedSpace = getSpace(fromRow - 1, fromCol + 1)
+    let jumpedSpace = getSpace(fromRow - 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      return jumpedSpace;
+    }
+    let nextJumpL = getSpace(fromRow - 3, fromCol + 1);
+    let nextMoveL = getSpace(fromRow - 4, fromCol + 0);
+    let nextJumpR = getSpace(fromRow - 3, fromCol + 3);
+    let nextMoveR = getSpace(fromRow - 4, fromCol + 4);
+    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveL.classList.contains('black') && 
+        !nextMoveL.classList.contains('red')) {
+      return jumpedSpace;
+    }
+    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') && 
+        !nextMoveR.classList.contains('black') && 
+        !nextMoveR.classList.contains('red')) {
       return jumpedSpace;
     }
   }
@@ -117,6 +173,7 @@ function isLegalMove(startSpace, endSpace) {
       //if the space we select is empty, do nothing
       return;
     }
+    //if it's not their turn, do nothing
     if (!this.classList.contains(turn)) {
       return;
     }
@@ -157,7 +214,7 @@ function isLegalMove(startSpace, endSpace) {
     redCount = redPieces.length; //number of red pieces left
     blackCount = blackPieces.length; //number of black pieces left
 
-    
+
     //when redCount=0, Black wins and vice versa
     if (redCount === 0) {
       alert('Black Wins!');
@@ -167,7 +224,7 @@ function isLegalMove(startSpace, endSpace) {
     }
 
     turn = turn === 'red' ? 'black' : 'red'
-    
+
   }
 })) //end of select function on dark spaces
 
