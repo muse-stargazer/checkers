@@ -23,6 +23,15 @@ function freshBoard() {
   blackPieces = document.getElementsByClassName('black'); //collection of black pieces
 
   [...darkSpaces].forEach(div => div.classList.remove('choose')); //clear all selections on New Game
+  
+  //make turn selector apparent --doesn't work
+  if (turn !== 'red') {
+    document.getElementById('blackTurn').display=block;
+    document.getElementById('redTurn').display=none;
+  } else {
+    document.getElementById('redTurn').display=block;
+    document.getElementById('blackTurn').display=none;
+  }
 } //end of freshBoard
 
 // returns a space by row/col coordinates
@@ -82,13 +91,13 @@ function isLegalMove(startSpace, endSpace) {
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpR;
     }
   }
 
@@ -106,13 +115,13 @@ function isLegalMove(startSpace, endSpace) {
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpR;
     }
   }
 
@@ -130,13 +139,13 @@ function isLegalMove(startSpace, endSpace) {
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpR;
     }
   }
 
@@ -154,13 +163,13 @@ function isLegalMove(startSpace, endSpace) {
       !nextMoveL.classList.contains('black') &&
       !nextMoveL.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpL;
     }
     if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
       !nextMoveR.classList.contains('black') &&
       !nextMoveR.classList.contains('red')) {
       turn = ('red' ? 'red' : 'black');
-      return jumpedSpace;
+      return nextJumpR;
     }
   }
 
@@ -174,7 +183,7 @@ function isLegalMove(startSpace, endSpace) {
 [...darkSpaces].forEach(div => div.addEventListener('click', function select() {
 
   chosenSpace = document.querySelector('.choose');
-
+  
   //if we haven't selected a space yet
   if (!chosenSpace) {
     if (!this.classList.contains('red') && !this.classList.contains('black')) {
@@ -235,6 +244,5 @@ function isLegalMove(startSpace, endSpace) {
 
   }
 })) //end of select function on dark spaces
-
 
 freshBoard();

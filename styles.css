@@ -115,6 +115,29 @@ div.red.crown {
   background-position: center;
 }
 
+.whoTurn {
+  font-size: 2rem;
+  position: absolute;
+  background-color: gray;
+  font-family: arial, sans-serif;
+  font-style: bolder;
+  padding: 4px;
+  left: 50%;
+  transform: translatex(-50%);
+  top: 9%;
+  margin: auto auto;
+}
+
+#redTurn {
+  color: crimson;
+  display: block;
+}
+
+#blackTurn {
+  color: black;
+  display: none;
+}
+
 #attribution {
   position: fixed;
   bottom: 0;
