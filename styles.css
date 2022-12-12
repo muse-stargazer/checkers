@@ -37,6 +37,7 @@ body {
   border-radius: 20px;
   right: 2vw;
   top: 1vh;
+  color: white;
 }
 
 #newGameButton p {
@@ -45,14 +46,14 @@ body {
   padding-right: 8px;
   font-family: arial, sans-serif;
   font-size: 2rem;
-  color: white;
+  
 }
 
 /*hover effect*/
 #newGameButton:hover {
   background-color: lightgreen;
-  color: black;
   cursor: pointer;
+  color: black;
 }
 
 /*overall game board*/
