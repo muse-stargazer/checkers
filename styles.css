@@ -19,6 +19,7 @@ body {
   left: 50%;
   transform: translatex(-50%);
   height: 7%;
+  width: auto;
   align-content: center;
 }
 
@@ -35,10 +36,9 @@ body {
   background-color: green;
   display: flex;
   border-radius: 20px;
-  right: 3%;
   top: 2%;
+  right: 2%;
   color: white;
-  margin-left: 3%;
 }
 
 #newGameButton p {
@@ -47,7 +47,6 @@ body {
   padding-right: 8px;
   font-family: arial, sans-serif;
   font-size: 3vh;
-  
 }
 
 /*hover effect*/
