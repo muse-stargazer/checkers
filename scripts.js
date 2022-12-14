@@ -73,23 +73,23 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol - 2) {
     let jumpedSpace = getSpace(fromRow + 1, fromCol - 1)
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      let nextJumpL = getSpace(fromRow + 3, fromCol - 3);
+      let nextMoveL = getSpace(fromRow + 4, fromCol - 4);
+      let nextJumpR = getSpace(fromRow + 3, fromCol - 1);
+      let nextMoveR = getSpace(fromRow + 4, fromCol + 0);
+      if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveL.classList.contains('black') &&
+        !nextMoveL.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpL;
+      }
+      if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveR.classList.contains('black') &&
+        !nextMoveR.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpR;
+      }
       return jumpedSpace;
-    }
-    let nextJumpL = getSpace(fromRow + 3, fromCol - 3);
-    let nextMoveL = getSpace(fromRow + 4, fromCol - 4);
-    let nextJumpR = getSpace(fromRow + 3, fromCol - 1);
-    let nextMoveR = getSpace(fromRow + 4, fromCol + 0);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveL.classList.contains('black') &&
-      !nextMoveL.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpL;
-    }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveR.classList.contains('black') &&
-      !nextMoveR.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpR;
     }
   }
 
@@ -97,23 +97,23 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol + 2) {
     let jumpedSpace = getSpace(fromRow + 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      let nextJumpL = getSpace(fromRow + 3, fromCol + 1);
+      let nextMoveL = getSpace(fromRow + 4, fromCol + 0);
+      let nextJumpR = getSpace(fromRow + 3, fromCol + 3);
+      let nextMoveR = getSpace(fromRow + 4, fromCol + 4);
+      if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveL.classList.contains('black') &&
+        !nextMoveL.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpL;
+      }
+      if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveR.classList.contains('black') &&
+        !nextMoveR.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpR;
+      }
       return jumpedSpace;
-    }
-    let nextJumpL = getSpace(fromRow + 3, fromCol + 1);
-    let nextMoveL = getSpace(fromRow + 4, fromCol + 0);
-    let nextJumpR = getSpace(fromRow + 3, fromCol + 3);
-    let nextMoveR = getSpace(fromRow + 4, fromCol + 4);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveL.classList.contains('black') &&
-      !nextMoveL.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpL;
-    }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveR.classList.contains('black') &&
-      !nextMoveR.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpR;
     }
   }
 
@@ -121,23 +121,23 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol - 2) {
     let jumpedSpace = getSpace(fromRow - 1, fromCol - 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      let nextJumpL = getSpace(fromRow - 3, fromCol - 3);
+      let nextMoveL = getSpace(fromRow - 4, fromCol - 4);
+      let nextJumpR = getSpace(fromRow - 3, fromCol - 1);
+      let nextMoveR = getSpace(fromRow - 4, fromCol + 0);
+      if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveL.classList.contains('black') &&
+        !nextMoveL.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpL;
+      }
+      if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveR.classList.contains('black') &&
+        !nextMoveR.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpR;
+      }
       return jumpedSpace;
-    }
-    let nextJumpL = getSpace(fromRow - 3, fromCol - 3);
-    let nextMoveL = getSpace(fromRow - 4, fromCol - 4);
-    let nextJumpR = getSpace(fromRow - 3, fromCol - 1);
-    let nextMoveR = getSpace(fromRow - 4, fromCol + 0);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveL.classList.contains('black') &&
-      !nextMoveL.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpL;
-    }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveR.classList.contains('black') &&
-      !nextMoveR.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpR;
     }
   }
 
@@ -145,23 +145,23 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol + 2) {
     let jumpedSpace = getSpace(fromRow - 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
+      let nextJumpL = getSpace(fromRow - 3, fromCol + 1);
+      let nextMoveL = getSpace(fromRow - 4, fromCol + 0);
+      let nextJumpR = getSpace(fromRow - 3, fromCol + 3);
+      let nextMoveR = getSpace(fromRow - 4, fromCol + 4);
+      if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveL.classList.contains('black') &&
+        !nextMoveL.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpL;
+      }
+      if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
+        !nextMoveR.classList.contains('black') &&
+        !nextMoveR.classList.contains('red')) {
+        turn = turn === 'red' ? 'red' : 'black';
+        return nextJumpR;
+      }
       return jumpedSpace;
-    }
-    let nextJumpL = getSpace(fromRow - 3, fromCol + 1);
-    let nextMoveL = getSpace(fromRow - 4, fromCol + 0);
-    let nextJumpR = getSpace(fromRow - 3, fromCol + 3);
-    let nextMoveR = getSpace(fromRow - 4, fromCol + 4);
-    if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveL.classList.contains('black') &&
-      !nextMoveL.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpL;
-    }
-    if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
-      !nextMoveR.classList.contains('black') &&
-      !nextMoveR.classList.contains('red')) {
-      turn = turn === 'red' ? 'red' : 'black';
-      return nextJumpR;
     }
   }
 
@@ -240,7 +240,7 @@ function isLegalMove(startSpace, endSpace) {
       document.getElementById('blackTurn').style.display = 'none';
       document.getElementById('redTurn').style.display = 'block';
     }
-    
+
   } //end of already selected one piece
 })) //end of select function on dark spaces
 
