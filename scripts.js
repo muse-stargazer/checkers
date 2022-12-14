@@ -80,8 +80,10 @@ function isLegalMove(startSpace, endSpace) {
       if (nextJumpL.classList.contains(isRed ? 'black' : 'red') &&
         !nextMoveL.classList.contains('black') &&
         !nextMoveL.classList.contains('red')) {
-        turn = turn === 'red' ? 'red' : 'black';
-        return nextJumpL;
+        endSpace.classList.remove(isRed ? 'red' : 'black');
+        jumpedSpace.classList.remove(isRed ? 'black' : 'red');
+        nextMoveL.classList.add(isRed ? 'red' : 'black');
+        return (nextJumpL);
       }
       if (nextJumpR.classList.contains(isRed ? 'black' : 'red') &&
         !nextMoveR.classList.contains('black') &&
