@@ -73,7 +73,7 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol - 2) {
     let jumpedSpace = getSpace(fromRow + 1, fromCol - 1)
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
-      return jumpedSpace;
+      jumpedSpace.classList.remove(isRed ? 'black' : 'red');
     }
     let nextJumpL = getSpace(fromRow + 3, fromCol - 3);
     let nextMoveL = getSpace(fromRow + 4, fromCol - 4);
@@ -100,7 +100,7 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveUp && toRow === fromRow + 2 && toCol === fromCol + 2) {
     let jumpedSpace = getSpace(fromRow + 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
-      return jumpedSpace;
+      jumpedSpace.classList.remove(isRed ? 'black' : 'red');
     }
     let nextJumpL = getSpace(fromRow + 3, fromCol + 1);
     let nextMoveL = getSpace(fromRow + 4, fromCol + 0);
@@ -128,7 +128,7 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol - 2) {
     let jumpedSpace = getSpace(fromRow - 1, fromCol - 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
-      return jumpedSpace;
+      jumpedSpace.classList.remove(isRed ? 'black' : 'red');
     }
     let nextJumpL = getSpace(fromRow - 3, fromCol - 3);
     let nextMoveL = getSpace(fromRow - 4, fromCol - 4);
@@ -156,7 +156,7 @@ function isLegalMove(startSpace, endSpace) {
   if (canMoveDown && toRow === fromRow - 2 && toCol === fromCol + 2) {
     let jumpedSpace = getSpace(fromRow - 1, fromCol + 1);
     if (jumpedSpace.classList.contains(isRed ? 'black' : 'red')) {
-      return jumpedSpace;
+      jumpedSpace.classList.remove(isRed ? 'black' : 'red');
     }
     let nextJumpL = getSpace(fromRow - 3, fromCol + 1);
     let nextMoveL = getSpace(fromRow - 4, fromCol + 0);
